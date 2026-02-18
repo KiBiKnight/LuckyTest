@@ -1,5 +1,6 @@
 using LuckyClean.Application;
 using LuckyClean.Infrastructure;
+using LuckyCLean.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -19,5 +23,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.MapControllers();
+
+app.UseExceptionHandler();
 
 app.Run();
