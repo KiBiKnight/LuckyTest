@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LuckyClean.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6340da132567e8113346f3ed65c0153f8006962")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0283b9fb9798807b294d748edb283ec818038391")]
 [assembly: System.Reflection.AssemblyProductAttribute("LuckyClean.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LuckyClean.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
