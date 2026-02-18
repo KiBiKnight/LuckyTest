@@ -1,4 +1,5 @@
-﻿using LuckyClean.Application.DTOs;
+﻿using FluentValidation;
+using LuckyClean.Application.DTOs;
 using LuckyClean.Application.Interfaces;
 using LuckyClean.Domain.Entities;
 using LuckyClean.Domain.Enums;
@@ -12,21 +13,34 @@ namespace LuckyClean.Application.Services
         private readonly IProductRepository _productRepository;
         private readonly IPaymentService _paymentService;
         private readonly IEmailService _emailService;
+        private readonly IValidator<ProcessOrderRequest> _validator;
 
         public OrderService(
             IOrderRepository orderRepository,
             IProductRepository productRepository,
             IPaymentService paymentService,
-            IEmailService emailService)
+            IEmailService emailService,
+            IValidator<ProcessOrderRequest> validator)
         {
             _orderRepository = orderRepository;
             _productRepository = productRepository;
             _paymentService = paymentService;
             _emailService = emailService;
+            _validator = validator;
         }
 
         public async Task<ProcessOrderResponse> ProcessOrderAsync(ProcessOrderRequest request)
         {
+            var validationResult = await _validator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+            {
+                return new ProcessOrderResponse
+                {
+                    IsSuccess = false,
+                    Message = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage))
+                };
+            }
+
             decimal total = 0;
             foreach (var itemName in request.Items)
             {
