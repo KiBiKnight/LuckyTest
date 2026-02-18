@@ -1,3 +1,6 @@
 ﻿LuckyClean/.vs
 LuckyClean/**/obj
 LuckyClean/**/bin
+*.db
+*.db-shm
+*.db-wal
