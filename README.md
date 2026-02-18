@@ -23,7 +23,7 @@ Dependencies flow inward: **API → Infrastructure → Application → Domain**
 
 1. **Clone the repository**
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/KiBiKnight/LuckyTest.git
    cd LuckyClean
    ```
 
@@ -44,7 +44,7 @@ Dependencies flow inward: **API → Infrastructure → Application → Domain**
    dotnet run --project LuckyClean.API
    ```
 
-5. **Open Swagger UI** to test endpoints at `https://localhost:{port}/swagger`
+5. **Open Swagger UI** to test endpoints at `https://localhost:7008/swagger`
 
 ## API Endpoints
 
