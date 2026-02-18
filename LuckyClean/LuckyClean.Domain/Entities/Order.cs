@@ -1,4 +1,4 @@
-﻿namespace LuckyClean.Domain.Models
+﻿namespace LuckyClean.Domain.Entities
 {
     public class Order
     {
