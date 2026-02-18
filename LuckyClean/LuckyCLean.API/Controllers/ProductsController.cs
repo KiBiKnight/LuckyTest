@@ -22,5 +22,12 @@ namespace LuckyCLean.API.Controllers
             await _productRepository.AddAsync(product);
             return Ok(product);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var products = await _productRepository.GetAllAsync();
+            return Ok(products);
+        }
     }
 }

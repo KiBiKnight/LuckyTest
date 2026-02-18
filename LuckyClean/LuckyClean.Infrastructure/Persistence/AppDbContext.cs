@@ -13,6 +13,12 @@ namespace LuckyClean.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+            modelBuilder.Entity<Product>().HasData(
+                new Product { Id = 1, Name = "Widget", Price = 9.99m },
+                new Product { Id = 2, Name = "Gadget", Price = 19.99m },
+                new Product { Id = 3, Name = "Thing", Price = 29.99m }
+            );
         }
     }
 }

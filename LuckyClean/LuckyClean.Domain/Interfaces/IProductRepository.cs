@@ -6,5 +6,6 @@ namespace LuckyClean.Domain.Interfaces
     {
         Task<Product?> GetByNameAsync(string name);
         Task<Product> AddAsync(Product product);
+        Task<List<Product>> GetAllAsync();
     }
 }

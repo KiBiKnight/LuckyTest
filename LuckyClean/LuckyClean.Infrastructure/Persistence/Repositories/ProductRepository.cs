@@ -25,5 +25,10 @@ namespace LuckyClean.Infrastructure.Persistence.Repositories
             await _context.SaveChangesAsync();
             return product;
         }
+
+        public async Task<List<Product>> GetAllAsync()
+        {
+            return await _context.Products.ToListAsync();
+        }
     }
 }
